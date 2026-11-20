@@ -1,0 +1,16 @@
+{
+  "name": "TGCF",
+  "short_name": "TGCF",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#2d4c2b",
+  "theme_color": "#2d4c2b",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icono.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
