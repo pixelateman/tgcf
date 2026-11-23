@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>TGCF - Calculadora</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="TGCF">
+  <link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
+  <style>
+    :root {
+      --primary: #2d4c2b;
+      --primary-dark: #1e351d;
+      --accent: #c59b27;
+      --bg: #f4f6f4;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #d1d5db;
+      --ok: #15803d;
+      --fail: #b91c1c;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: var(--bg); color: var(--text); padding: 12px; max-width: 480px; margin: 0 auto; }
+    
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #fff;
+      text-align: center;
+      padding: 16px 12px;
+      border-radius: 12px;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+    }
+    header h1 { font-size: 1.9rem; letter-spacing: 3px; font-weight: 800; }
+
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 14px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      border: 1px solid #e5e7eb;
+    }
+    .section-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 10px;
+      border-bottom: 2px solid var(--bg);
+      padding-bottom: 4px;
+    }
+
+    /* Selectores de Edad y Sexo */
+    .selectors-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    label { font-size: 0.8rem; font-weight: 600; color: var(--muted); display: block; margin-bottom: 4px; }
+    select {
+      width: 100%;
+      padding: 10px 6px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      background: #fff;
+      color: var(--text);
+      text-align: center;
+    }
+    select:focus { outline: 2px solid var(--primary); border-color: transparent; }
+
+    /* Tabla de Mínimos (2) y Máximos (10) en dos columnas */
+    .minmax-header, .minmax-row {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 4px;
+    }
+    .minmax-header {
+      background: var(--bg);
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.78rem;
+      text-align: center;
+    }
+    .minmax-header div:first-child { text-align: left; padding-left: 6px; }
+    .minmax-row { border-bottom: 1px solid #f0f0f0; font-size: 0.88rem; }
+    .minmax-row:last-child { border-bottom: none; }
+    .minmax-test { font-weight: 600; color: var(--text); }
+    .badge-min, .badge-max {
+      text-align: center;
+      padding: 5px 4px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+    .badge-min { background: #fef3c7; color: #92400e; }
+    .badge-max { background: #dcfce7; color: #166534; }
+
+    /* Introducción de marcas con selectores */
+    .input-row {
+      display: grid;
+      grid-template-columns: 1.15fr 1.25fr 0.65fr;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #f3f4f6;
+    }
+    .input-row:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .dual-select {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+    }
+    .test-label { font-size: 0.88rem; font-weight: 600; }
+    .test-unit { font-size: 0.72rem; color: var(--muted); display: block; }
+    .score-pill {
+      text-align: center;
+      padding: 8px 4px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      background: var(--bg);
+    }
+    .score-ok { background: #dcfce7; color: var(--ok); }
+    .score-fail { background: #fee2e2; color: var(--fail); }
+
+    /* Resultado Global */
+    .result-box {
+      background: var(--primary);
+      color: #fff;
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+    .result-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .result-item {
+      background: rgba(255,255,255,0.12);
+      padding: 10px;
+      border-radius: 8px;
+    }
+    .result-item span { font-size: 0.75rem; opacity: 0.85; display: block; }
+    .result-item strong { font-size: 1.5rem; font-weight: 800; }
+    .apto-banner {
+      margin-top: 10px;
+      padding: 6px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      background: rgba(255,255,255,0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>TGCF</h1>
+  </header>
+
+  <!-- 1. Selección de Edad y Sexo -->
+  <section class="card">
+    <div class="section-title">1. Perfil</div>
+    <div class="selectors-grid">
+      <div>
+        <label for="edad">Grupo de Edad</label>
+        <select id="edad" onchange="actualizarApp()">
+          <option value="0">17 a 25 años</option>
+          <option value="1">26 a 30 años</option>
+          <option value="2">31 a 35 años</option>
+          <option value="3">36 a 40 años</option>
+          <option value="4">41 a 45 años</option>
+          <option value="5">46 a 50 años</option>
+          <option value="6">51 a 55 años</option>
+          <option value="7">56 a 59 años</option>
+          <option value="8">60 o más años</option>
+        </select>
+      </div>
+      <div>
+        <label for="sexo">Sexo</label>
+        <select id="sexo" onchange="actualizarApp()">
+          <option value="0">Masculino (M)</option>
+          <option value="1">Femenino (F)</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Dos columnas: Marcas Mínimas (Nota 2) y Máximas (Nota 10) -->
+  <section class="card">
+    <div class="section-title">2. Marcas de Referencia (Nota 2 y 10)</div>
+    <div class="minmax-header">
+      <div>Prueba Física</div>
+      <div>Mínimo (2)</div>
+      <div>Máximo (10)</div>
+    </div>
+    <div class="minmax-row">
+      <div class="minmax-test">Flexiones brazos</div>
+      <div class="badge-min" id="min-flex">-</div>
+      <div class="badge-max" id="max-flex">-</div>
+    </div>
+    <div class="minmax-row">
+      <div class="minmax-test">Plancha abdominal</div>
+      <div class="badge-min" id="min-plan">-</div>
+      <div class="badge-max" id="max-plan">-</div>
+    </div>
+    <div class="minmax-row">
+      <div class="minmax-test">Carrera 2.000 m</div>
+      <div class="badge-min" id="min-carr">-</div>
+      <div class="badge-max" id="max-carr">-</div>
+    </div>
+    <div class="minmax-row" id="row-minmax-agil">
+      <div class="minmax-test">Circuito agilidad</div>
+      <div class="badge-min" id="min-agil">-</div>
+      <div class="badge-max" id="max-agil">-</div>
+    </div>
+  </section>
+
+  <!-- 3. Introducción de Marcas mediante Selectores -->
+  <section class="card">
+    <div class="section-title">3. Introducir Marcas Obtenidas</div>
+    
+    <!-- Flexiones (0 a 99) -->
+    <div class="input-row">
+      <div>
+        <span class="test-label">Flexiones</span>
+        <span class="test-unit">Repeticiones (0-99)</span>
+      </div>
+      <select id="in-flex" onchange="calcularPuntos()"></select>
+      <div class="score-pill" id="pts-flex">0,0</div>
+    </div>
+
+    <!-- Plancha (Minutos 0-9 y Segundos 0-59) -->
+    <div class="input-row">
+      <div>
+        <span class="test-label">Plancha</span>
+        <span class="test-unit">Min (0-9) : Seg (0-59)</span>
+      </div>
+      <div class="dual-select">
+        <select id="in-plan-min" onchange="calcularPuntos()"></select>
+        <select id="in-plan-seg" onchange="calcularPuntos()"></select>
+      </div>
+      <div class="score-pill" id="pts-plan">0,0</div>
+    </div>
+
+    <!-- Carrera 2 km (Minutos 0-59 y Segundos 0-59) -->
+    <div class="input-row">
+      <div>
+        <span class="test-label">Carrera 2 km</span>
+        <span class="test-unit">Min (0-59) : Seg (0-59)</span>
+      </div>
+      <div class="dual-select">
+        <select id="in-carr-min" onchange="calcularPuntos()"></select>
+        <select id="in-carr-seg" onchange="calcularPuntos()"></select>
+      </div>
+      <div class="score-pill" id="pts-carr">0,0</div>
+    </div>
+
+    <!-- Agilidad (Segundos 0-59 y Décimas 0-9) -->
+    <div class="input-row" id="row-in-agil">
+      <div>
+        <span class="test-label">Agilidad</span>
+        <span class="test-unit">Seg (0-59) , Déc (0-9)</span>
+      </div>
+      <div class="dual-select">
+        <select id="in-agil-seg" onchange="calcularPuntos()"></select>
+        <select id="in-agil-dec" onchange="calcularPuntos()"></select>
+      </div>
+      <div class="score-pill" id="pts-agil">0,0</div>
+    </div>
+  </section>
+
+  <!-- 4. Puntuación Final -->
+  <section class="result-box">
+    <div style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Calificación Final TGCF</div>
+    <div class="result-grid">
+      <div class="result-item">
+        <span>Nota Media (0-10)</span>
+        <strong id="nota-media">0,00</strong>
+      </div>
+      <div class="result-item">
+        <span>Puntos Totales (Anexo II)</span>
+        <strong id="puntos-totales">0</strong>
+      </div>
+    </div>
+    <div class="apto-banner" id="estado-apto">Introduce tus marcas para calcular</div>
+  </section>
+
+<script>
+  // =========================================================================
+  // 1. TABLA II.1: FLEXO-EXTENSIONES DE BRAZO (Repeticiones: 73 a 0)
+  // =========================================================================
+  const TABLA_FLEXIONES = [
+    [73, [100,100, 100,100, 100,100, 100,100, 100,100, 100,100, 100,100, 100,100, 100,100]],
+    [72, [100,100, 100,100, 100,100, 100,100, 100,100, 100,100, 100,100, 100,100, 100,100]],
+    [71, [ 99,100, 100,100, 100,100, 100,100, 100,100, 100,100, 100,100, 100,100, 100,100]],
+    [70, [ 98,100,  99,100, 100,100, 100,100, 100,100, 100,100, 100,100, 100,100, 100,100]],
+    [69, [ 97,100,  98,100,  99,100, 100,100, 100,100, 100,100, 100,100, 100,100, 100,100]],
+    [68, [ 96,100,  97,100,  98,100,  99,100, 100,100, 100,100, 100,100, 100,100, 100,100]],
+    [67, [ 95,100,  96,100,  97,100,  98,100,  99,100, 100,100, 100,100, 100,100, 100,100]],
+    [66, [ 94,100,  95,100,  96,100,  97,100,  98,100,  99,100, 100,100, 100,100, 100,100]],
+    [65, [ 93, 99,  94,100,  95,100,  96,100,  97,100,  98,100,  99,100, 100,100, 100,100]],
+    [64, [ 92, 98,  93, 99,  94,100,  95,100,  96,100,  97,100,  98,100, 100,100, 100,100]],
+    [63, [ 91, 97,  92, 98,  93, 99,  94,100,  95,100,  96,100,  97,100,  99,100, 100,100]],
+    [62, [ 90, 96,  91, 97,  92, 98,  93, 99,  94,100,  95,100,  96,100,  98,100,  99,100]],
+    [61, [ 89, 95,  90, 96,  91, 97,  92, 98,  93, 99,  94,100,  95,100,  97,100,  98,100]],
+    [60, [ 88, 94,  89, 95,  90, 96,  91, 97,  92, 98,  93, 99,  94, 99,  96, 99,  97,100]],
+    [59, [ 87, 93,  88, 94,  89, 95,  90, 96,  91, 97,  92, 98,  93, 98,  95, 98,  96, 99]],
+    [58, [ 86, 92,  87, 93,  88, 94,  89, 95,  90, 96,  91, 97,  92, 97,  94, 97,  95, 98]],
+    [57, [ 85, 91,  86, 92,  87, 93,  88, 94,  89, 95,  90, 96,  91, 96,  93, 96,  94, 97]],
+    [56, [ 84, 90,  85, 91,  86, 92,  87, 93,  88, 94,  89, 95,  90, 95,  92, 95,  93, 96]],
+    [55, [ 83, 89,  84, 90,  85, 91,  86, 92,  87, 93,  88, 94,  89, 94,  91, 94,  92, 95]],
+    [54, [ 82, 88,  83, 89,  84, 90,  85, 91,  86, 92,  87, 93,  88, 93,  90, 93,  91, 94]],
+    [53, [ 81, 87,  82, 88,  83, 89,  84, 90,  85, 91,  86, 92,  87, 92,  89, 92,  90, 93]],
+    [52, [ 80, 86,  81, 87,  82, 88,  83, 89,  84, 90,  85, 91,  86, 91,  88, 91,  89, 92]],
+    [51, [ 79, 85,  80, 86,  81, 87,  82, 88,  83, 89,  84, 90,  85, 90,  87, 90,  88, 91]],
+    [50, [ 78, 84,  79, 85,  80, 86,  81, 87,  82, 88,  83, 89,  84, 89,  86, 89,  87, 90]],
+    [49, [ 77, 83,  78, 84,  79, 85,  80, 86,  81, 87,  82, 88,  83, 88,  85, 88,  86, 89]],
+    [48, [ 76, 82,  77, 83,  78, 84,  79, 85,  80, 86,  81, 87,  82, 87,  84, 87,  85, 88]],
+    [47, [ 75, 81,  76, 82,  77, 83,  78, 84,  79, 85,  80, 86,  81, 86,  83, 86,  84, 87]],
+    [46, [ 74, 80,  75, 81,  76, 82,  77, 83,  78, 84,  79, 85,  80, 85,  82, 85,  83, 86]],
+    [45, [ 72, 79,  74, 80,  75, 81,  76, 82,  77, 83,  78, 84,  79, 84,  81, 84,  82, 85]],
+    [44, [ 70, 78,  72, 79,  74, 80,  75, 81,  76, 82,  77, 83,  78, 83,  80, 83,  81, 84]],
+    [43, [ 68, 77,  70, 78,  72, 79,  74, 80,  75, 81,  76, 82,  77, 82,  79, 82,  80, 83]],
+    [42, [ 66, 76,  68, 77,  70, 78,  72, 79,  74, 80,  75, 81,  76, 81,  78, 81,  79, 82]],
+    [41, [ 64, 75,  66, 76,  68, 77,  70, 78,  72, 79,  74, 80,  75, 80,  77, 80,  78, 81]],
+    [40, [ 62, 74,  64, 75,  66, 76,  68, 77,  70, 78,  72, 79,  74, 79,  76, 79,  77, 80]],
+    [39, [ 60, 72,  62, 74,  64, 75,  66, 76,  68, 77,  70, 78,  72, 78,  75, 78,  76, 79]],
+    [38, [ 58, 70,  60, 72,  62, 74,  64, 75,  66, 76,  68, 77,  70, 77,  74, 77,  75, 78]],
+    [37, [ 56, 68,  58, 70,  60, 72,  62, 74,  64, 75,  66, 76,  68, 76,  72, 76,  74, 77]],
+    [36, [ 54, 66,  56, 68,  58, 70,  60, 72,  62, 74,  64, 75,  66, 75,  70, 75,  72, 76]],
+    [35, [ 52, 64,  54, 66,  56, 68,  58, 70,  60, 72,  62, 74,  64, 74,  68, 74,  70, 75]],
+    [34, [ 50, 62,  52, 64,  54, 66,  56, 68,  58, 70,  60, 72,  62, 72,  66, 72,  68, 74]],
+    [33, [ 48, 60,  50, 62,  52, 64,  54, 66,  56, 68,  58, 70,  60, 70,  64, 70,  66, 72]],
+    [32, [ 46, 58,  48, 60,  50, 62,  52, 64,  54, 66,  56, 68,  58, 68,  62, 68,  64, 70]],
+    [31, [ 44, 56,  46, 58,  48, 60,  50, 62,  52, 64,  54, 66,  56, 66,  60, 66,  62, 68]],
+    [30, [ 42, 54,  44, 56,  46, 58,  48, 60,  50, 62,  52, 64,  54, 64,  58, 64,  60, 66]],
+    [29, [ 40, 52,  42, 54,  44, 56,  46, 58,  48, 60,  50, 62,  52, 62,  56, 62,  58, 64]],
+    [28, [ 38, 50,  40, 52,  42, 54,  44, 56,  46, 58,  48, 60,  50, 60,  54, 60,  56, 62]],
+    [27, [ 36, 48,  38, 50,  40, 52,  42, 54,  44, 56,  46, 58,  48, 58,  52, 58,  54, 60]],
+    [26, [ 34, 46,  36, 48,  38, 50,  40, 52,  42, 54,  44, 56,  46, 56,  50, 56,  52, 58]],
+    [25, [ 32, 44,  34, 46,  36, 48,  38, 50,  40, 52,  42, 54,  44, 54,  48, 54,  50, 56]],
+    [24, [ 30, 42,  32, 44,  34, 46,  36, 48,  38, 50,  40, 52,  42, 52,  46, 52,  48, 54]],
+    [23, [ 29, 40,  30, 42,  32, 44,  34, 46,  36, 48,  38, 50,  40, 50,  44, 50,  46, 52]],
+    [22, [ 28, 38,  29, 40,  30, 42,  32, 44,  34, 46,  36, 48,  38, 48,  42, 48,  44, 50]],
+    [21, [ 27, 36,  28, 38,  29, 40,  30, 42,  32, 44,  34, 46,  36, 46,  40, 46,  42, 48]],
+    [20, [ 26, 34,  27, 36,  28, 38,  29, 40,  30, 42,  32, 44,  34, 44,  38, 44,  40, 46]],
+    [19, [ 25, 32,  26, 34,  27, 36,  28, 38,  29, 40,  30, 42,  32, 42,  36, 42,  38, 44]],
+    [18, [ 24, 30,  25, 32,  26, 34,  27, 36,  28, 38,  29, 40,  30, 40,  34, 40,  36, 42]],
+    [17, [ 23, 29,  24, 30,  25, 32,  26, 34,  27, 36,  28, 38,  29, 38,  32, 38,  34, 40]],
+    [16, [ 22, 28,  23, 29,  24, 30,  25, 32,  26, 34,  27, 36,  28, 36,  30, 36,  32, 38]],
+    [15, [ 21, 27,  22, 28,  23, 29,  24, 30,  25, 32,  26, 34,  27, 34,  29, 34,  30, 36]],
+    [14, [ 20, 26,  21, 27,  22, 28,  23, 29,  24, 30,  25, 32,  26, 32,  28, 32,  29, 34]],
+    [13, [ 18, 25,  20, 26,  21, 27,  22, 28,  23, 29,  24, 30,  25, 30,  27, 30,  28, 32]],
+    [12, [ 16, 24,  18, 25,  20, 26,  21, 27,  22, 28,  23, 29,  24, 29,  26, 29,  27, 30]],
+    [11, [ 14, 23,  16, 24,  18, 25,  20, 26,  21, 27,  22, 28,  23, 28,  25, 28,  26, 29]],
+    [10, [ 12, 22,  14, 23,  16, 24,  18, 25,  20, 26,  21, 27,  22, 27,  24, 27,  25, 28]],
+    [ 9, [ 10, 21,  12, 22,  14, 23,  16, 24,  18, 25,  20, 26,  21, 26,  23, 26,  24, 27]],
+    [ 8, [  9, 20,  10, 21,  12, 22,  14, 23,  16, 24,  18, 25,  20, 25,  22, 25,  23, 26]],
+    [ 7, [  8, 18,   9, 20,  10, 21,  12, 22,  14, 23,  16, 24,  18, 24,  21, 24,  22, 25]],
+    [ 6, [  7, 16,   8, 18,   9, 20,  10, 21,  12, 22,  14, 23,  16, 23,  20, 23,  21, 24]],
+    [ 5, [  6, 14,   6, 16,   8, 18,   9, 20,  10, 21,  12, 22,  14, 22,  18, 22,  20, 23]],
+    [ 4, [  5, 12,   5, 14,   6, 15,   8, 16,   9, 20,  10, 21,  12, 21,  16, 21,  16, 22]],
+    [ 3, [  4, 10,   4, 12,   5, 13,   6, 14,   8, 15,   9, 20,  10, 20,  14, 20,  12, 21]],
+    [ 2, [  3,  6,   3, 10,   4, 10,   4, 10,   6, 11,   8, 15,   9, 15,  12, 15,   8, 20]],
+    [ 1, [  2,  3,   2,  6,   3,  6,   3,  6,   4,  6,   6,  8,   6,  8,   6,  8,   6,  8]],
+    [ 0, [  1,  0,   1,  0,   0,  0,   0,  0,   0,  0,   0,  0,   0,  0,   0,  0,   0,  0]]
+  ];
+
+  // =========================================================================
+  // 2. TABLA II.2: PLANCHA ISOMÉTRICA (Segundos: 315 = 5:15 a 15 = 0:15)
+  // =========================================================================
+  const TABLA_PLANCHA = [
+    [315, [100,100,  100,100,  100,100, 100,100, 100,100, 100,100, 100,100, 100,100, 100,100]],
+    [310, [ 99, 99,  100,100,  100,100, 100,100, 100,100, 100,100, 100,100, 100,100, 100,100]],
+    [305, [ 98, 98,   99, 99,  100,100, 100,100, 100,100, 100,100, 100,100, 100,100, 100,100]],
+    [300, [ 97, 97,   98, 98,   99, 99, 100,100, 100,100, 100,100, 100,100, 100,100, 100,100]],
+    [295, [ 95, 95,   97, 97,   98, 98,  99, 99, 100,100, 100,100, 100,100, 100,100, 100,100]],
+    [290, [ 94, 94,   95, 95,   97, 97,  98, 98,  99, 99, 100,100, 100,100, 100,100, 100,100]],
+    [285, [ 93, 93,   94, 94,   95, 95,  97, 97,  98, 98,  99, 99, 100,100, 100,100, 100,100]],
+    [280, [ 91, 91,   93, 93,   94, 94,  95, 95,  97, 97,  98, 98,  99, 99, 100,100, 100,100]],
+    [275, [ 90, 90,   91, 91,   93, 93,  94, 94,  95, 95,  97, 97,  98, 98,  99, 99, 100,100]],
+    [270, [ 89, 89,   90, 90,   91, 91,  93, 93,  94, 94,  95, 95,  97, 97,  98, 98, 100,100]],
+    [265, [ 88, 88,   89, 89,   90, 90,  91, 91,  93, 93,  94, 94,  95, 95,  97, 97,  99, 99]],
+    [260, [ 86, 86,   88, 88,   89, 89,  90, 90,  91, 91,  93, 93,  94, 94,  95, 95,  98, 98]],
+    [255, [ 85, 85,   86, 86,   88, 88,  89, 89,  90, 90,  91, 91,  93, 93,  94, 94,  97, 97]],
+    [250, [ 84, 84,   85, 85,   86, 86,  88, 88,  89, 89,  90, 90,  91, 91,  93, 93,  95, 95]],
+    [245, [ 82, 82,   84, 84,   85, 85,  86, 86,  88, 88,  89, 89,  90, 90,  91, 91,  94, 94]],
+    [240, [ 81, 81,   82, 82,   84, 84,  85, 85,  86, 86,  88, 88,  89, 89,  90, 90,  93, 93]],
+    [235, [ 80, 80,   81, 81,   82, 82,  84, 84,  85, 85,  86, 86,  88, 88,  89, 89,  91, 91]],
+    [230, [ 78, 78,   80, 80,   81, 81,  82, 82,  84, 84,  85, 85,  86, 86,  88, 88,  90, 90]],
+    [225, [ 77, 77,   78, 78,   80, 80,  81, 81,  82, 82,  84, 84,  85, 85,  86, 86,  89, 89]],
+    [220, [ 76, 76,   77, 77,   78, 78,  80, 80,  81, 81,  82, 82,  84, 84,  85, 85,  88, 88]],
+    [215, [ 74, 74,   76, 76,   77, 77,  78, 78,  80, 80,  81, 81,  82, 82,  84, 84,  86, 86]],
+    [210, [ 73, 73,   74, 74,   76, 76,  77, 77,  78, 78,  80, 80,  81, 81,  82, 82,  85, 85]],
+    [205, [ 72, 72,   73, 73,   74, 74,  76, 76,  77, 77,  78, 78,  80, 80,  81, 81,  84, 84]],
+    [200, [ 70, 70,   72, 72,   73, 73,  74, 74,  76, 76,  77, 77,  78, 78,  80, 80,  82, 82]],
+    [195, [ 69, 69,   70, 70,   72, 72,  73, 73,  74, 74,  76, 76,  77, 77,  78, 78,  81, 81]],
+    [190, [ 68, 68,   69, 69,   70, 70,  72, 72,  73, 73,  74, 74,  76, 76,  77, 77,  80, 80]],
+    [185, [ 66, 66,   68, 68,   69, 69,  70, 70,  72, 72,  73, 73,  74, 74,  76, 76,  78, 78]],
+    [180, [ 65, 65,   66, 66,   68, 68,  69, 69,  70, 70,  72, 72,  73, 73,  74, 74,  77, 77]],
+    [175, [ 64, 64,   65, 65,   66, 66,  68, 68,  69, 69,  70, 70,  72, 72,  73, 73,  76, 76]],
+    [170, [ 62, 62,   64, 64,   65, 65,  66, 66,  68, 68,  69, 69,  70, 70,  72, 72,  74, 74]],
+    [165, [ 61, 61,   62, 62,   64, 64,  65, 65,  66, 66,  68, 68,  69, 69,  70, 70,  73, 73]],
+    [160, [ 60, 60,   61, 61,   62, 62,  64, 64,  65, 65,  66, 66,  68, 68,  69, 69,  72, 72]],
+    [155, [ 58, 58,   60, 60,   61, 61,  62, 62,  64, 64,  65, 65,  66, 66,  68, 68,  70, 70]],
+    [150, [ 57, 57,   58, 58,   60, 60,  61, 61,  62, 62,  64, 64,  65, 65,  66, 66,  69, 69]],
+    [145, [ 56, 56,   57, 57,   58, 58,  60, 60,  61, 61,  62, 62,  64, 64,  65, 65,  68, 68]],
+    [140, [ 54, 54,   56, 56,   57, 57,  58, 58,  60, 60,  61, 61,  62, 62,  64, 64,  66, 66]],
+    [135, [ 53, 53,   54, 54,   56, 56,  57, 57,  58, 58,  60, 60,  61, 61,  62, 62,  65, 65]],
+    [130, [ 52, 52,   53, 53,   54, 54,  56, 56,  57, 57,  58, 58,  60, 60,  61, 61,  64, 64]],
+    [125, [ 50, 50,   52, 52,   53, 53,  54, 54,  56, 56,  57, 57,  58, 58,  60, 60,  62, 62]],
+    [120, [ 49, 49,   50, 50,   52, 52,  53, 53,  54, 54,  56, 56,  57, 57,  58, 58,  61, 61]],
+    [115, [ 48, 48,   49, 49,   50, 50,  52, 52,  53, 53,  54, 54,  56, 56,  57, 57,  60, 60]],
+    [110, [ 47, 47,   48, 48,   49, 49,  50, 50,  52, 52,  53, 53,  54, 54,  56, 56,  58, 58]],
+    [105, [ 45, 45,   47, 47,   48, 48,  49, 49,  50, 50,  52, 52,  53, 53,  54, 54,  57, 57]],
+    [100, [ 44, 44,   45, 45,   47, 47,  48, 48,  49, 49,  50, 50,  52, 52,  53, 53,  56, 56]],
+    [ 95, [ 43, 43,   44, 44,   45, 45,  47, 47,  48, 48,  49, 49,  50, 50,  52, 52,  54, 54]],
+    [ 90, [ 41, 41,   43, 43,   44, 44,  45, 45,  47, 47,  48, 48,  49, 49,  50, 50,  53, 53]],
+    [ 85, [ 40, 40,   41, 41,   43, 43,  44, 44,  45, 45,  47, 47,  48, 48,  49, 49,  52, 52]],
+    [ 82, [ 39, 39,   40, 40,   41, 41,  43, 43,  44, 44,  45, 45,  47, 47,  48, 48,  50, 50]],
+    [ 79, [ 37, 37,   39, 39,   40, 40,  41, 41,  43, 43,  44, 44,  45, 45,  47, 47,  49, 49]],
+    [ 76, [ 36, 36,   37, 37,   39, 39,  40, 40,  41, 41,  43, 43,  44, 44,  45, 45,  48, 48]],
+    [ 73, [ 35, 35,   36, 36,   37, 37,  39, 39,  40, 40,  41, 41,  43, 43,  44, 44,  47, 47]],
+    [ 70, [ 33, 33,   35, 35,   36, 36,  37, 37,  39, 39,  40, 40,  41, 41,  43, 43,  45, 45]],
+    [ 67, [ 32, 32,   33, 33,   35, 35,  36, 36,  37, 37,  39, 39,  40, 40,  41, 41,  44, 44]],
+    [ 64, [ 31, 31,   32, 32,   33, 33,  35, 35,  36, 36,  37, 37,  39, 39,  40, 40,  43, 43]],
+    [ 61, [ 30, 30,   31, 31,   32, 32,  33, 33,  35, 35,  36, 36,  37, 37,  39, 39,  41, 41]],
+    [ 58, [ 28, 28,   30, 30,   31, 31,  32, 32,  33, 33,  35, 35,  36, 36,  37, 37,  40, 40]],
+    [ 55, [ 27, 27,   28, 28,   30, 30,  31, 31,  32, 32,  33, 33,  35, 35,  36, 36,  39, 39]],
+    [ 52, [ 25, 25,   27, 27,   28, 28,  30, 30,  31, 31,  32, 32,  33, 33,  35, 35,  37, 37]],
+    [ 49, [ 24, 24,   25, 25,   27, 27,  28, 28,  30, 30,  31, 31,  32, 32,  33, 33,  36, 36]],
+    [ 46, [ 23, 23,   24, 24,   25, 25,  27, 27,  28, 28,  30, 30,  31, 31,  32, 32,  35, 35]],
+    [ 43, [ 21, 21,   23, 23,   24, 24,  25, 25,  27, 27,  28, 28,  30, 30,  31, 31,  33, 33]],
+    [ 40, [ 20, 20,   21, 21,   23, 23,  24, 24,  25, 25,  27, 27,  28, 28,  30, 30,  32, 32]],
+    [ 36, [ 19, 19,   20, 20,   21, 21,  23, 23,  24, 24,  25, 25,  27, 27,  28, 28,  31, 31]],
+    [ 35, [ 18, 18,   19, 19,   20, 20,  21, 21,  23, 23,  24, 24,  25, 25,  27, 27,  30, 30]],
+    [ 34, [ 17, 17,   18, 18,   19, 19,  20, 20,  21, 21,  23, 23,  24, 24,  25, 25,  28, 28]],
+    [ 33, [ 16, 16,   17, 17,   18, 18,  19, 19,  20, 20,  21, 21,  23, 23,  24, 24,  27, 27]],
+    [ 32, [ 15, 15,   16, 16,   17, 17,  18, 18,  19, 19,  20, 20,  21, 21,  23, 23,  25, 25]],
+    [ 31, [ 14, 14,   15, 15,   16, 16,  17, 17,  18, 18,  19, 19,  20, 20,  21, 21,  24, 24]],
+    [ 30, [ 13, 13,   14, 14,   15, 15,  16, 16,  17, 17,  18, 18,  19, 19,  20, 20,  23, 23]],
+    [ 29, [ 12, 12,   13, 13,   14, 14,  15, 15,  16, 16,  17, 17,  18, 18,  19, 19,  21, 21]],
+    [ 28, [ 11, 11,   12, 12,   13, 13,  14, 14,  15, 15,  16, 16,  17, 17,  18, 18,  20, 20]],
+    [ 27, [ 10, 10,   11, 11,   12, 12,  13, 13,  14, 14,  15, 15,  16, 16,  17, 17,  19, 19]],
+    [ 26, [  9,  9,   10, 10,   11, 11,  12, 12,  13, 13,  14, 14,  15, 15,  16, 16,  18, 18]],
+    [ 25, [  8,  8,    9,  9,   10, 10,  11, 11,  12, 12,  13, 13,  14, 14,  15, 15,  17, 17]],
+    [ 24, [  7,  7,    8,  8,    9,  9,  10, 10,  11, 11,  12, 12,  13, 13,  14, 14,  16, 16]],
+    [ 23, [  6,  6,    7,  7,    8,  8,   9,  9,  10, 10,  11, 11,  12, 12,  13, 13,  15, 15]],
+    [ 22, [  5,  5,    6,  6,    7,  7,   8,  8,   9,  9,  10, 10,  11, 11,  12, 12,  14, 14]],
+    [ 21, [  4,  4,    5,  5,    6,  6,   7,  7,   8,  8,   9,  9,  10, 10,  11, 11,  13, 13]],
+    [ 20, [  3,  3,    4,  4,    5,  5,   6,  6,   7,  7,   8,  8,   9,  9,  10, 10,  12, 12]],
+    [ 19, [  2,  2,    3,  3,    4,  4,   5,  5,   6,  6,   7,  7,   8,  8,   9,  9,  11, 11]],
+    [ 18, [  1,  1,    2,  2,    3,  3,   4,  4,   5,  5,   6,  6,   7,  7,   8,  8,   9,  9]],
+    [ 17, [  0,  0,    1,  1,    2,  2,   3,  3,   4,  4,   5,  5,   6,  6,   7,  7,   8,  8]],
+    [ 16, [  0,  0,    0,  0,    1,  1,   2,  2,   3,  3,   4,  4,   5,  5,   6,  6,   7,  7]],
+    [ 15, [  0,  0,    0,  0,    0,  0,   0,  0,   0,  0,   0,  0,   0,  0,   0,  0,   0,  0]]
+  ];
+
+  // =========================================================================
+  // 3. TABLA II.3: CARRERA 2.000 METROS (Segundos: 386 = 6:26 a 1022 = 17:02)
+  // =========================================================================
+  const TABLA_CARRERA = [
+    [ 386, [100,100, 100,100, 100,100, 100,100, 100,100, 100,100, 100,100, 100,100, 100,100]],
+    [ 394, [ 98,100, 100,100, 100,100, 100,100, 100,100, 100,100, 100,100, 100,100, 100,100]],
+    [ 402, [ 96,100,  98,100, 100,100, 100,100, 100,100, 100,100, 100,100, 100,100, 100,100]],
+    [ 410, [ 94,100,  96,100,  98,100, 100,100, 100,100, 100,100, 100,100, 100,100, 100,100]],
+    [ 418, [ 92,100,  94,100,  96,100,  98,100, 100,100, 100,100, 100,100, 100,100, 100,100]],
+    [ 426, [ 90,100,  92,100,  94,100,  96,100,  98,100, 100,100, 100,100, 100,100, 100,100]],
+    [ 434, [ 88,100,  90,100,  92,100,  94,100,  96,100,  98,100, 100,100, 100,100, 100,100]],
+    [ 442, [ 86, 98,  88,100,  90,100,  92,100,  94,100,  96,100, 100,100, 100,100, 100,100]],
+    [ 450, [ 84, 96,  86, 98,  88,100,  90,100,  92,100,  94,100, 100,100, 100,100, 100,100]],
+    [ 458, [ 82, 94,  84, 96,  86, 98,  88,100,  90,100,  92,100, 100,100, 100,100, 100,100]],
+    [ 466, [ 80, 92,  82, 94,  84, 96,  86,100,  88,100,  90,100, 100,100, 100,100, 100,100]],
+    [ 474, [ 78, 90,  80, 92,  82, 94,  84, 98,  86,100,  88,100,  98,100, 100,100, 100,100]],
+    [ 482, [ 76, 88,  78, 90,  80, 92,  82, 96,  84,100,  86,100,  96,100, 100,100, 100,100]],
+    [ 490, [ 74, 86,  76, 88,  78, 90,  80, 94,  82, 98,  84,100,  94,100, 100,100, 100,100]],
+    [ 498, [ 72, 84,  74, 86,  76, 88,  78, 92,  80, 96,  82,100,  92,100, 100,100, 100,100]],
+    [ 506, [ 70, 82,  72, 84,  74, 86,  76, 90,  78, 94,  80, 98,  90,100,  98,100, 100,100]],
+    [ 514, [ 68, 80,  70, 82,  72, 84,  74, 88,  76, 92,  78, 96,  88,100,  96,100, 100,100]],
+    [ 522, [ 66, 78,  68, 80,  70, 82,  72, 86,  74, 90,  76, 94,  86,100,  94,100, 100,100]],
+    [ 530, [ 64, 76,  66, 78,  68, 80,  70, 84,  72, 88,  74, 92,  84,100,  92,100,  98,100]],
+    [ 536, [ 62, 74,  64, 76,  66, 78,  68, 82,  70, 86,  72, 90,  82,100,  90,100,  96,100]],
+    [ 546, [ 60, 72,  62, 74,  64, 76,  66, 80,  68, 84,  70, 88,  80,100,  88,100,  94,100]],
+    [ 554, [ 58, 70,  60, 72,  62, 74,  64, 78,  66, 82,  68, 86,  78,100,  86,100,  92,100]],
+    [ 562, [ 56, 68,  58, 70,  60, 72,  62, 76,  64, 80,  66, 84,  76,100,  84,100,  90,100]],
+    [ 570, [ 54, 66,  56, 68,  58, 70,  60, 74,  62, 78,  64, 82,  74,100,  82,100,  88,100]],
+    [ 576, [ 52, 64,  54, 66,  56, 68,  58, 72,  60, 76,  62, 80,  72,100,  80,100,  86,100]],
+    [ 586, [ 50, 62,  52, 64,  54, 66,  56, 70,  58, 74,  60, 78,  70, 98,  78,100,  84,100]],
+    [ 594, [ 48, 60,  50, 62,  52, 64,  54, 68,  56, 72,  58, 76,  68, 96,  76,100,  82,100]],
+    [ 602, [ 46, 58,  48, 60,  50, 62,  52, 66,  54, 70,  56, 74,  66, 94,  74,100,  80,100]],
+    [ 610, [ 44, 56,  46, 58,  48, 60,  50, 64,  52, 68,  54, 72,  64, 92,  72,100,  78,100]],
+    [ 618, [ 42, 54,  44, 56,  46, 58,  48, 62,  50, 66,  52, 70,  62, 90,  70, 98,  76,100]],
+    [ 626, [ 40, 52,  42, 54,  44, 56,  46, 60,  48, 64,  50, 68,  60, 88,  68, 96,  74,100]],
+    [ 634, [ 38, 50,  40, 52,  42, 54,  44, 58,  46, 62,  48, 66,  58, 86,  66, 94,  72, 98]],
+    [ 642, [ 36, 48,  38, 50,  40, 52,  42, 56,  44, 60,  46, 64,  56, 84,  64, 92,  70, 96]],
+    [ 650, [ 34, 46,  36, 48,  38, 50,  40, 54,  42, 58,  44, 62,  54, 82,  62, 90,  68, 94]],
+    [ 656, [ 32, 44,  34, 46,  36, 48,  38, 52,  40, 56,  42, 60,  52, 80,  60, 88,  66, 92]],
+    [ 666, [ 30, 42,  32, 44,  34, 46,  36, 50,  38, 54,  40, 58,  50, 78,  58, 86,  64, 90]],
+    [ 674, [ 28, 40,  30, 42,  32, 44,  34, 48,  36, 52,  38, 56,  48, 76,  56, 84,  62, 88]],
+    [ 682, [ 26, 38,  28, 40,  30, 42,  32, 46,  34, 50,  36, 54,  46, 74,  54, 82,  60, 86]],
+    [ 690, [ 24, 36,  26, 38,  28, 40,  30, 44,  32, 48,  34, 52,  44, 72,  52, 80,  58, 84]],
+    [ 698, [ 22, 34,  24, 36,  26, 38,  28, 42,  30, 46,  32, 50,  42, 70,  50, 78,  56, 82]],
+    [ 706, [ 20, 32,  22, 34,  24, 36,  26, 40,  28, 44,  30, 48,  40, 68,  48, 76,  54, 80]],
+    [ 714, [ 19, 30,  20, 32,  22, 34,  24, 38,  26, 42,  28, 46,  38, 66,  46, 74,  52, 78]],
+    [ 722, [ 18, 28,  19, 30,  20, 32,  22, 36,  24, 40,  26, 44,  36, 64,  44, 72,  50, 76]],
+    [ 730, [ 17, 26,  18, 28,  19, 30,  20, 34,  22, 38,  24, 42,  34, 62,  42, 70,  48, 74]],
+    [ 738, [ 16, 24,  17, 26,  18, 28,  19, 32,  20, 36,  22, 40,  32, 60,  40, 68,  46, 72]],
+    [ 746, [ 15, 22,  16, 24,  17, 26,  18, 30,  19, 34,  20, 38,  30, 58,  38, 66,  44, 70]],
+    [ 754, [ 14, 20,  15, 22,  16, 24,  17, 28,  18, 32,  20, 36,  28, 56,  36, 64,  42, 68]],
+    [ 762, [ 13, 19,  14, 20,  15, 22,  16, 26,  17, 30,  19, 34,  26, 54,  34, 62,  40, 66]],
+    [ 770, [ 12, 18,  13, 19,  14, 20,  15, 24,  16, 28,  18, 32,  24, 52,  32, 60,  38, 64]],
+    [ 778, [ 11, 17,  12, 18,  13, 19,  14, 22,  15, 26,  17, 30,  22, 50,  30, 58,  36, 62]],
+    [ 786, [ 10, 16,  11, 17,  12, 18,  13, 20,  14, 24,  16, 28,  20, 48,  28, 56,  34, 60]],
+    [ 794, [  9, 15,  10, 16,  11, 17,  12, 19,  13, 22,  15, 26,  20, 46,  26, 54,  32, 58]],
+    [ 802, [  8, 14,   9, 15,  10, 16,  11, 18,  12, 20,  14, 24,  19, 44,  24, 52,  30, 56]],
+    [ 810, [  7, 13,   8, 14,   9, 15,  10, 17,  11, 19,  13, 22,  18, 42,  22, 50,  28, 54]],
+    [ 818, [  6, 12,   7, 13,   8, 14,   9, 16,  10, 18,  12, 20,  17, 40,  20, 48,  26, 52]],
+    [ 826, [  5, 11,   6, 12,   7, 13,   8, 15,   9, 17,  11, 19,  16, 38,  20, 46,  24, 50]],
+    [ 834, [  4, 10,   5, 11,   6, 12,   7, 14,   8, 16,  10, 18,  15, 36,  19, 44,  22, 48]],
+    [ 842, [  3,  9,   4, 10,   5, 11,   6, 13,   7, 15,   9, 17,  14, 34,  18, 42,  20, 46]],
+    [ 850, [  2,  8,   3,  9,   4, 10,   5, 12,   6, 14,   8, 16,  13, 32,  17, 40,  19, 44]],
+    [ 858, [  1,  7,   2,  8,   3,  9,   4, 11,   5, 13,   7, 15,  12, 30,  16, 38,  18, 42]],
+    [ 866, [  0,  6,   1,  7,   2,  8,   3, 10,   4, 12,   6, 14,  11, 28,  15, 36,  17, 40]],
+    [ 874, [  0,  5,   0,  6,   1,  7,   2,  9,   3, 11,   5, 13,  10, 26,  14, 34,  16, 38]],
+    [ 882, [  0,  4,   0,  5,   0,  6,   1,  8,   2, 10,   4, 12,   8, 24,  13, 32,  15, 36]],
+    [ 890, [  0,  3,   0,  4,   0,  5,   0,  7,   1,  9,   3, 11,   6, 22,  12, 30,  14, 34]],
+    [ 898, [  0,  2,   0,  3,   0,  4,   0,  6,   0,  8,   2, 10,   4, 20,  11, 28,  13, 32]],
+    [ 906, [  0,  1,   0,  2,   0,  3,   0,  5,   0,  7,   1,  9,   3, 18,  10, 26,  12, 30]],
+    [ 914, [  0,  0,   0,  1,   0,  2,   0,  4,   0,  6,   0,  8,   2, 16,   6, 24,  11, 28]],
+    [ 982, [  0,  0,   0,  1,   0,  1,   0,  3,   0,  5,   0,  7,   1, 14,   3, 22,  10, 26]],
+    [ 990, [  0,  0,   0,  0,   0,  2,   0,  2,   0,  4,   0,  6,   0, 12,   2, 20,   4, 24]],
+    [ 998, [  0,  0,   0,  0,   0,  1,   0,  1,   0,  3,   0,  5,   0, 10,   1, 14,   3, 22]],
+    [1006, [  0,  0,   0,  0,   0,  0,   0,  1,   0,  2,   0,  4,   0,  4,   0,  6,   2, 20]],
+    [1014, [  0,  0,   0,  0,   0,  0,   0,  0,   0,  1,   0,  3,   0,  3,   0,  4,   1, 14]],
+    [1022, [  0,  0,   0,  0,   0,  0,   0,  0,   0,  0,   0,  0,   0,  0,   0,  0,   0,  0]]
+  ];
+
+  // =========================================================================
+  // 4. TABLA II.4: CIRCUITO AGILIDAD-VELOCIDAD (Segundos: 11.6 a 19.0)
+  // =========================================================================
+  const TABLA_AGILIDAD = [
+    [11.6, [100,100, 100,100, 100,100, 100,100, 100,100]],
+    [11.7, [100,100, 100,100, 100,100, 100,100, 100,100]],
+    [11.8, [100,100, 100,100, 100,100, 100,100, 100,100]],
+    [11.9, [ 99,100, 100,100, 100,100, 100,100, 100,100]],
+    [12.0, [ 97,100, 100,100, 100,100, 100,100, 100,100]],
+    [12.1, [ 95,100,  99,100, 100,100, 100,100, 100,100]],
+    [12.2, [ 93,100,  97,100, 100,100, 100,100, 100,100]],
+    [12.3, [ 91,100,  95,100,  99,100, 100,100, 100,100]],
+    [12.4, [ 89,100,  93,100,  97,100, 100,100, 100,100]],
+    [12.5, [ 86,100,  91,100,  95,100,  99,100, 100,100]],
+    [12.6, [ 83,100,  89,100,  93,100,  97,100, 100,100]],
+    [12.7, [ 80,100,  86,100,  91,100,  95,100, 100,100]],
+    [12.8, [ 77, 98,  83,100,  89,100,  93,100, 100,100]],
+    [12.9, [ 74, 96,  80,100,  86,100,  91,100,  99,100]],
+    [13.0, [ 72, 94,  77, 98,  83,100,  89,100,  97,100]],
+    [13.1, [ 71, 92,  74, 96,  80,100,  86,100,  95,100]],
+    [13.2, [ 68, 90,  72, 94,  77, 98,  83,100,  93,100]],
+    [13.3, [ 65, 88,  71, 92,  74, 96,  80,100,  91,100]],
+    [13.4, [ 62, 86,  68, 90,  72, 94,  77, 98,  89,100]],
+    [13.5, [ 59, 84,  65, 88,  71, 92,  74, 96,  86,100]],
+    [13.6, [ 56, 82,  62, 86,  68, 90,  72, 94,  83, 98]],
+    [13.7, [ 53, 80,  59, 84,  65, 88,  71, 92,  80, 96]],
+    [13.8, [ 50, 78,  56, 82,  62, 86,  68, 90,  77,100]],
+    [13.9, [ 48, 76,  53, 80,  59, 84,  65, 88,  74, 98]],
+    [14.0, [ 46, 74,  50, 78,  56, 82,  62, 86,  72, 96]],
+    [14.1, [ 43, 72,  48, 76,  53, 80,  59, 84,  71, 94]],
+    [14.2, [ 40, 70,  46, 74,  50, 78,  56, 82,  68, 92]],
+    [14.3, [ 38, 68,  43, 72,  48, 76,  53, 80,  65, 90]],
+    [14.4, [ 36, 66,  40, 70,  46, 74,  50, 78,  62, 88]],
+    [14.5, [ 34, 64,  38, 68,  43, 72,  48, 76,  59, 86]],
+    [14.6, [ 32, 62,  36, 66,  40, 70,  46, 74,  56, 84]],
+    [14.7, [ 30, 60,  34, 64,  38, 68,  43, 72,  53, 82]],
+    [14.8, [ 28, 58,  32, 62,  36, 66,  40, 70,  50, 80]],
+    [14.9, [ 26, 56,  30, 60,  34, 64,  38, 68,  48, 78]],
+    [15.0, [ 24, 54,  28, 58,  32, 62,  36, 66,  46, 76]],
+    [15.1, [ 22, 52,  26, 56,  30, 60,  34, 64,  43, 74]],
+    [15.2, [ 20, 50,  24, 54,  28, 58,  32, 62,  40, 72]],
+    [15.3, [ 19, 48,  22, 52,  26, 56,  30, 60,  38, 70]],
+    [15.4, [ 18, 46,  20, 50,  24, 54,  28, 58,  36, 68]],
+    [15.5, [ 17, 44,  19, 48,  22, 52,  26, 56,  34, 66]],
+    [15.6, [ 16, 42,  18, 46,  20, 50,  24, 54,  32, 64]],
+    [15.7, [ 15, 40,  17, 44,  19, 48,  22, 52,  30, 62]],
+    [15.8, [ 14, 38,  16, 42,  18, 46,  20, 50,  28, 60]],
+    [15.9, [ 13, 36,  15, 40,  17, 44,  19, 48,  26, 58]],
+    [16.0, [ 12, 34,  14, 38,  16, 42,  18, 46,  24, 56]],
+    [16.1, [ 11, 32,  13, 36,  15, 40,  17, 44,  22, 54]],
+    [16.2, [ 10, 30,  12, 34,  14, 38,  16, 42,  20, 52]],
+    [16.3, [  9, 28,  11, 32,  13, 36,  15, 40,  19, 50]],
+    [16.4, [  8, 26,  10, 30,  12, 34,  14, 38,  18, 48]],
+    [16.5, [  7, 24,   9, 28,  11, 32,  13, 36,  17, 46]],
+    [16.6, [  6, 22,   8, 26,  10, 30,  12, 34,  16, 44]],
+    [16.7, [  5, 20,   7, 24,   9, 28,  11, 32,  15, 42]],
+    [16.8, [  4, 19,   6, 22,   8, 26,  10, 30,  14, 40]],
+    [16.9, [  3, 18,   5, 20,   7, 24,   9, 28,  13, 38]],
+    [17.0, [  2, 17,   4, 19,   6, 22,   8, 26,  12, 36]],
+    [17.1, [  1, 16,   3, 18,   5, 20,   7, 24,  11, 34]],
+    [17.2, [  0, 15,   2, 17,   4, 19,   6, 22,  10, 32]],
+    [17.3, [  0, 14,   1, 16,   3, 18,   5, 20,   7, 30]],
+    [17.4, [  0, 13,   0, 15,   2, 17,   4, 19,   6, 28]],
+    [17.5, [  0, 12,   0, 14,   1, 16,   3, 18,   5, 26]],
+    [17.6, [  0, 11,   0, 13,   0, 15,   2, 17,   4, 24]],
+    [17.7, [  0, 10,   0, 12,   0, 14,   1, 16,   3, 22]],
+    [17.8, [  0,  9,   0, 11,   0, 13,   0, 15,   2, 20]],
+    [17.9, [  0,  8,   0, 10,   0, 12,   0, 14,   1, 19]],
+    [18.0, [  0,  7,   0,  9,   0, 11,   0, 13,   0, 18]],
+    [18.1, [  0,  6,   0,  8,   0, 10,   0, 12,   0, 17]],
+    [18.2, [  0,  5,   0,  7,   0,  9,   0, 11,   0, 16]],
+    [18.3, [  0,  4,   0,  6,   0,  8,   0, 10,   0, 15]],
+    [18.4, [  0,  3,   0,  5,   0,  7,   0,  9,   0, 14]],
+    [18.5, [  0,  2,   0,  4,   0,  6,   0,  8,   0, 10]],
+    [18.6, [  0,  1,   0,  3,   0,  5,   0,  7,   0,  9]],
+    [18.7, [  0,  0,   0,  2,   0,  4,   0,  6,   0,  8]],
+    [18.8, [  0,  0,   0,  1,   0,  3,   0,  5,   0,  7]],
+    [18.9, [  0,  0,   0,  0,   0,  2,   0,  4,   0,  6]],
+    [19.0, [  0,  0,   0,  0,   0,  0,   0,  0,   0,  0]]
+  ];
+
+  // Rellena dinámicamente los selectores con sus rangos exactos
+  function poblarSelectores() {
+    const rellenar = (id, min, max, sufijo = '', padDosDigitos = false) => {
+      const sel = document.getElementById(id);
+      let opciones = '<option value="">-</option>';
+      for (let i = min; i <= max; i++) {
+        const texto = padDosDigitos ? String(i).padStart(2, '0') : String(i);
+        opciones += `<option value="${i}">${texto}${sufijo}</option>`;
+      }
+      sel.innerHTML = opciones;
+    };
+
+    // Flexiones: 0 al 99
+    rellenar('in-flex', 0, 99, ' rep', false);
+
+    // Plancha: minutos (0 al 9) y segundos (0 al 59)
+    rellenar('in-plan-min', 0, 9, ' m', false);
+    rellenar('in-plan-seg', 0, 59, ' s', true);
+
+    // Carrera: minutos (0 al 59) y segundos (0 al 59)
+    rellenar('in-carr-min', 0, 59, ' m', true);
+    rellenar('in-carr-seg', 0, 59, ' s', true);
+
+    // Agilidad: segundos (0 al 59) y décimas (0 al 9)
+    rellenar('in-agil-seg', 0, 59, ' s', true);
+    rellenar('in-agil-dec', 0, 9, ' d', false);
+  }
+
+  function segAMinSeg(seg) {
+    const m = Math.floor(seg / 60);
+    const s = Math.round(seg % 60);
+    return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+  }
+
+  function obtenerMinMaxDeTabla(tabla, colIdx, inverso) {
+    let marcaMin2 = null;
+    let marcaMax10 = null;
+    if (!inverso) {
+      for (let i = tabla.length - 1; i >= 0; i--) {
+        const marca = tabla[i][0];
+        const pts = tabla[i][1][colIdx];
+        if (pts >= 20 && marcaMin2 === null) marcaMin2 = marca;
+        if (pts === 100) { marcaMax10 = marca; break; }
+      }
+    } else {
+      for (let i = tabla.length - 1; i >= 0; i--) {
+        const marca = tabla[i][0];
+        const pts = tabla[i][1][colIdx];
+        if (pts >= 20 && marcaMin2 === null) marcaMin2 = marca;
+      }
+      for (let i = 0; i < tabla.length; i++) {
+        const marca = tabla[i][0];
+        const pts = tabla[i][1][colIdx];
+        if (pts === 100) { marcaMax10 = marca; }
+      }
+    }
+    return [marcaMin2, marcaMax10];
+  }
+
+  function leerPuntosTabla(tabla, marca, colIdx, inverso) {
+    if (isNaN(marca) || marca === null) return null;
+
+    if (!inverso) {
+      if (marca >= tabla[0][0]) return tabla[0][1][colIdx] / 10;
+      if (marca < tabla[tabla.length - 1][0]) return 0;
+
+      for (let i = 0; i < tabla.length; i++) {
+        if (marca === tabla[i][0]) {
+          return tabla[i][1][colIdx] / 10;
+        }
+        if (i < tabla.length - 1 && marca < tabla[i][0] && marca > tabla[i + 1][0]) {
+          return tabla[i][1][colIdx] / 10;
+        }
+      }
+    } else {
+      if (marca <= tabla[0][0]) return tabla[0][1][colIdx] / 10;
+      if (marca > tabla[tabla.length - 1][0]) return 0;
+
+      for (let i = 0; i < tabla.length; i++) {
+        if (marca === tabla[i][0]) {
+          return tabla[i][1][colIdx] / 10;
+        }
+        if (i < tabla.length - 1 && marca > tabla[i][0] && marca < tabla[i + 1][0]) {
+          return tabla[i][1][colIdx] / 10;
+        }
+      }
+    }
+    return 0;
+  }
+
+  function actualizarApp() {
+    const edadIdx = parseInt(document.getElementById('edad').value, 10);
+    const sexoIdx = parseInt(document.getElementById('sexo').value, 10);
+    const colIdx = edadIdx * 2 + sexoIdx;
+
+    const [minFlex, maxFlex] = obtenerMinMaxDeTabla(TABLA_FLEXIONES, colIdx, false);
+    const [minPlan, maxPlan] = obtenerMinMaxDeTabla(TABLA_PLANCHA, colIdx, false);
+    const [minCarr, maxCarr] = obtenerMinMaxDeTabla(TABLA_CARRERA, colIdx, true);
+
+    document.getElementById('min-flex').textContent = `${minFlex} rep`;
+    document.getElementById('max-flex').textContent = `${maxFlex} rep`;
+
+    document.getElementById('min-plan').textContent = segAMinSeg(minPlan);
+    document.getElementById('max-plan').textContent = segAMinSeg(maxPlan);
+
+    document.getElementById('min-carr').textContent = segAMinSeg(minCarr);
+    document.getElementById('max-carr').textContent = segAMinSeg(maxCarr);
+
+    const rowMinMaxAgil = document.getElementById('row-minmax-agil');
+    const rowInAgil = document.getElementById('row-in-agil');
+
+    if (edadIdx <= 4) {
+      rowMinMaxAgil.style.display = 'grid';
+      rowInAgil.style.display = 'grid';
+      const [minAgil, maxAgil] = obtenerMinMaxDeTabla(TABLA_AGILIDAD, colIdx, true);
+      document.getElementById('min-agil').textContent = `${minAgil.toFixed(1).replace('.', ',')} s`;
+      document.getElementById('max-agil').textContent = `${maxAgil.toFixed(1).replace('.', ',')} s`;
+    } else {
+      rowMinMaxAgil.style.display = 'none';
+      rowInAgil.style.display = 'none';
+    }
+
+    calcularPuntos();
+  }
+
+  function pintarPill(id, nota) {
+    const el = document.getElementById(id);
+    if (nota === null) {
+      el.textContent = '0,0';
+      el.className = 'score-pill';
+      return;
+    }
+    el.textContent = nota.toFixed(1).replace('.', ',');
+    el.className = 'score-pill ' + (nota >= 2.0 ? 'score-ok' : 'score-fail');
+  }
+
+  function leerTiempoDoble(idMin, idSeg) {
+    const valM = document.getElementById(idMin).value;
+    const valS = document.getElementById(idSeg).value;
+    if (valM === '' && valS === '') return NaN;
+    const m = valM === '' ? 0 : parseInt(valM, 10);
+    const s = valS === '' ? 0 : parseInt(valS, 10);
+    return (m * 60) + s;
+  }
+
+  function leerAgilidadDoble(idSeg, idDec) {
+    const valS = document.getElementById(idSeg).value;
+    const valD = document.getElementById(idDec).value;
+    if (valS === '' && valD === '') return NaN;
+    const s = valS === '' ? 0 : parseInt(valS, 10);
+    const d = valD === '' ? 0 : parseInt(valD, 10);
+    return Number((s + (d / 10)).toFixed(1));
+  }
+
+  function calcularPuntos() {
+    const edadIdx = parseInt(document.getElementById('edad').value, 10);
+    const sexoIdx = parseInt(document.getElementById('sexo').value, 10);
+    const colIdx = edadIdx * 2 + sexoIdx;
+
+    const strFlex = document.getElementById('in-flex').value;
+    const vFlex = strFlex === '' ? NaN : parseInt(strFlex, 10);
+    const vPlan = leerTiempoDoble('in-plan-min', 'in-plan-seg');
+    const vCarr = leerTiempoDoble('in-carr-min', 'in-carr-seg');
+    const vAgil = leerAgilidadDoble('in-agil-seg', 'in-agil-dec');
+
+    const nFlex = leerPuntosTabla(TABLA_FLEXIONES, vFlex, colIdx, false);
+    const nPlan = leerPuntosTabla(TABLA_PLANCHA, vPlan, colIdx, false);
+    const nCarr = leerPuntosTabla(TABLA_CARRERA, vCarr, colIdx, true);
+    const nAgil = (edadIdx <= 4) ? leerPuntosTabla(TABLA_AGILIDAD, vAgil, colIdx, true) : null;
+
+    pintarPill('pts-flex', nFlex);
+    pintarPill('pts-plan', nPlan);
+    pintarPill('pts-carr', nCarr);
+    if (edadIdx <= 4) pintarPill('pts-agil', nAgil);
+
+    const notasActivas = (edadIdx <= 4) ? [nFlex, nPlan, nCarr, nAgil] : [nFlex, nPlan, nCarr];
+    const completadas = notasActivas.filter(n => n !== null);
+
+    const estadoEl = document.getElementById('estado-apto');
+    if (completadas.length === 0) {
+      document.getElementById('nota-media').textContent = '0,00';
+      document.getElementById('puntos-totales').textContent = '0';
+      estadoEl.textContent = 'Introduce tus marcas para calcular';
+      estadoEl.style.background = 'rgba(255,255,255,0.2)';
+      return;
+    }
+
+    const sumaNotas = completadas.reduce((a, b) => a + b, 0);
+    const media = sumaNotas / notasActivas.length;
+    const puntosAnexoII = Math.round(sumaNotas * 10);
+    const algunNoApto = notasActivas.some(n => n === null || n < 2.0);
+
+    document.getElementById('nota-media').textContent = media.toFixed(2).replace('.', ',');
+    document.getElementById('puntos-totales').textContent = puntosAnexoII;
+
+    if (completadas.length < notasActivas.length) {
+      estadoEl.textContent = 'Faltan pruebas por introducir';
+      estadoEl.style.background = 'rgba(255,255,255,0.2)';
+    } else if (!algunNoApto) {
+      estadoEl.textContent = 'APTO (Supera mínimos ≥ 2,0)';
+      estadoEl.style.background = '#15803d';
+    } else {
+      estadoEl.textContent = 'NO APTO (Alguna prueba < 2,0)';
+      estadoEl.style.background = '#b91c1c';
+    }
+  }
+
+  window.onload = function() {
+    poblarSelectores();
+    actualizarApp();
+  };
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js');
+  }
+</script>
+</body>
+</html>
