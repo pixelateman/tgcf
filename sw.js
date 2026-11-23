@@ -1,5 +1,5 @@
 const CACHE_NAME = 'tgcf-ios-v2';
-const ARCHIVOS = ['./', './index.html', './manifest.json'];
+const ARCHIVOS = ['./', './index.html', './manifest.json', './icono.png'];
 
 self.addEventListener('install', (e) => {
   self.skipWaiting();
